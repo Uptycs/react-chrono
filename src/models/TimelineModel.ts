@@ -20,6 +20,7 @@ export type TimelineModel = Pick<
   activeTimelineItem: number;
   contentDetailsChildren?: React.ReactNode | React.ReactNode[];
   iconChildren?: React.ReactNode | React.ReactNode[];
+  innerRef?: (e: HTMLDivElement) => void;
   onFirst: () => void;
   onLast: () => void;
   onNext: () => void;
@@ -38,6 +39,11 @@ export type TimelineModel = Pick<
  * @interface TimelineProps
  */
 export type TimelineProps = {
+  CircleDividerStyle?: React.CSSProperties;
+  CircleStyle?: React.CSSProperties;
+  OutlineStyle: React.CSSProperties;
+  TimelineMainWrapperStyle: React.CSSProperties;
+  TimelineTitleContainerStyle: React.CSSProperties;
   activeItemIndex?: number;
   allowDynamicUpdate?: boolean;
   borderLessCards?: boolean;
@@ -72,6 +78,7 @@ export type TimelineProps = {
   onItemSelected?: (data: TimelineItemModel) => void;
   onRestartSlideshow?: () => void;
   onScrollEnd?: () => void;
+  scrollIntoView?: boolean;
   scrollable?: boolean | { scrollbar: boolean };
   showAllCardsHorizontal?: boolean;
   slideItemDuration?: number;

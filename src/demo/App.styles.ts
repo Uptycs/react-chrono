@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const ModeWrapper = styled.div`
-  width: 90%;
+  width: 100%;
   position: relative;
   border-radius: 10px;
   background: #fff;
@@ -35,9 +35,9 @@ export const ComponentContainer = styled.div<{ type?: string }>`
   ${(p) => {
     switch (p.type) {
       case 'desktop':
-        return `width: 80%;`;
+        return `width: 100%;`;
       case 'big-screen':
-        return `width: 80%;`;
+        return `width: 100%;`;
       case 'tablet':
         return `width: 100%;`;
       default:

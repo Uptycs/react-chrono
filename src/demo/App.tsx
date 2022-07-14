@@ -5,7 +5,8 @@ import { TimelineItemModel } from '../models/TimelineItemModel';
 import {
   HorizontalAll,
   HorizontalBasic, HorizontalBasicCardLess, HorizontalInitalSelectedItem,
-  VerticalBasic, VerticalBasicCardLess, VerticalCustomContent, VerticalCustomContent2, VerticalTree, VerticalTreeMixed
+  VerticalBasic, VerticalBasicCardLess, VerticalCustomContent, VerticalCustomContent2, VerticalTree, VerticalTreeMixed,
+  HorizontalNew
 } from './app-samples';
 import './App.css';
 import {
@@ -98,6 +99,9 @@ const NewDemo: React.FunctionComponent = () => {
             <li>
               <Link to="/timeline-without-cards-horizontal">Timeline Card less (Horizontal)</Link>
             </li>
+            <li>
+              <Link to="/new-card-variant">New Card</Link>
+            </li>
           </ComponentLinks>
         </aside>
         <AppArea>
@@ -134,6 +138,8 @@ const NewDemo: React.FunctionComponent = () => {
             <Route path="/timeline-without-cards" element={items.length > 0 && <VerticalBasicCardLess type='big-screen' items={items} />}>
             </Route>
             <Route path="/timeline-without-cards-horizontal" element={items.length > 0 && <HorizontalBasicCardLess type='big-screen' items={items} />}>
+            </Route>
+            <Route path="/new-card-variant" element={items.length > 0 && <HorizontalNew type='big-screen' items={items} />}>
             </Route>
             <Route path="/" element={items.length > 0 && (
               <VerticalBasic type={"big-screen"} items={items} />

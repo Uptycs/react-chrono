@@ -2,7 +2,7 @@ import { TimelineItemModel } from '../models/TimelineItemModel';
 
 const items: TimelineItemModel[] = [
   {
-    title: 'May 1940',
+    title: 'May 1940 - Timeline - Timeline',
     cardTitle: 'Dunkirk',
     url: 'http://www.history.com',
     media: {

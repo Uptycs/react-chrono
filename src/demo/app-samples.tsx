@@ -417,3 +417,54 @@ export const VerticalCustomContent2: FunctionComponent<{
     </ComponentContainerTree>
   </Vertical>
 );
+
+export const HorizontalNew: React.FunctionComponent<{
+  type: string;
+  items: TimelineItemModel[];
+}> = ({ items }) => {
+  return (
+    <Horizontal id="horizontal">
+      <ComponentContainer type={'big-screen'}>
+        <Chrono
+          items={data}
+          activeItemIndex={2}
+          mode="HORIZONTAL"
+          cardHeight={150}
+          slideShow
+          slideItemDuration={2550}
+          onItemSelected={selected => console.log(selected)}
+          lineWidth={30}
+          OutlineStyle={{
+            background: 'rgba(0, 0 , 0, .2)',
+            borderRadius: '8px'
+          }}
+          TimelineMainWrapperStyle={{
+            height: '220px'
+          }}
+          scrollable={false}
+          TimelineTitleContainerStyle={{
+            transform: 'translate(-15px, 15px) rotate(-45deg)',
+            maxWidth: '200px',
+            whiteSpace: 'nowrap',
+            overflow: 'hidden',
+            transformOrigin: 'top left',
+            left: 'calc(50%)'
+          }}
+          timelineCircleDimension={15}
+          scrollIntoView={false}
+          >
+          <div className="chrono-icons">
+            <img src="color-circle.svg" alt="github" />
+            <img src="color-circle.svg" alt="github" />
+            <img src="color-circle.svg" alt="github" />
+            <img src="color-circle.svg" alt="github" />
+            <img src="color-circle.svg" alt="github" />
+          </div>
+        </Chrono>
+
+      </ComponentContainer>
+      <div style={{height:'1000px'}} />
+    </Horizontal>
+  );
+};
+

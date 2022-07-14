@@ -43,6 +43,7 @@ const Timeline: React.FunctionComponent<TimelineModel> = (
     onOutlineSelection,
     slideShowEnabled,
     slideShowRunning,
+    innerRef,
   } = props;
 
   const {
@@ -53,11 +54,14 @@ const Timeline: React.FunctionComponent<TimelineModel> = (
     hideControls,
     itemWidth = 200,
     lineWidth,
+    OutlineStyle,
+    TimelineMainWrapperStyle,
     mode = 'HORIZONTAL',
     onScrollEnd,
     scrollable = true,
     showAllCardsHorizontal,
     theme,
+    scrollIntoView = true,
   } = useContext(GlobalContext);
 
   const [newOffSet, setNewOffset] = useNewScrollPosition(mode, itemWidth);
@@ -152,7 +156,7 @@ const Timeline: React.FunctionComponent<TimelineModel> = (
       const item = items[activeTimelineItem];
       onItemSelected && onItemSelected(items[activeTimelineItem]);
 
-      if (mode === 'HORIZONTAL') {
+      if (mode === 'HORIZONTAL' && scrollIntoView) {
         const card = horizontalContentRef.current?.querySelector(
           `#timeline-card-${item.id}`,
         );
@@ -258,6 +262,7 @@ const Timeline: React.FunctionComponent<TimelineModel> = (
       onMouseDownCapture={() => {
         setHasFocus(true);
       }}
+      ref={innerRef}
     >
       <TimelineMainWrapper
         ref={timelineMainRef}
@@ -266,6 +271,7 @@ const Timeline: React.FunctionComponent<TimelineModel> = (
         id="timeline-main-wrapper"
         theme={theme}
         mode={mode}
+        style={TimelineMainWrapperStyle}
         onScroll={(ev) => {
           const target = ev.target as HTMLElement;
           let scrolled = 0;
@@ -307,7 +313,11 @@ const Timeline: React.FunctionComponent<TimelineModel> = (
         {/* HORIZONTAL */}
         {mode === 'HORIZONTAL' ? (
           <TimelineMain className={mode.toLowerCase()}>
-            <Outline color={theme && theme.primary} height={lineWidth} />
+            <Outline
+              color={theme && theme.primary}
+              height={lineWidth}
+              style={OutlineStyle}
+            />
             <TimelineHorizontal
               autoScroll={handleScroll}
               contentDetailsChildren={contentDetailsChildren}

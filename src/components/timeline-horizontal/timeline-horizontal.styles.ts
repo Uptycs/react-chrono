@@ -12,6 +12,7 @@ export const TimelineHorizontalWrapper = styled.ul<{ flipLayout?: boolean }>`
   }
   &.horizontal {
     flex-direction: row;
+    padding: 0px 50px;
   }
 `;
 

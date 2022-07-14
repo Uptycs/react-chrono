@@ -1,5 +1,6 @@
 import 'focus-visible';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
+import useDimensions from 'react-cool-dimensions';
 import { TimelineItemModel } from '../models/TimelineItemModel';
 import { TimelineProps } from '../models/TimelineModel';
 import GlobalContextProvider from './GlobalContext';
@@ -18,6 +19,15 @@ const Chrono: React.FunctionComponent<Partial<TimelineProps>> = (
     onItemSelected,
     activeItemIndex = 0,
   } = props;
+
+  const { observe, unobserve, width, height, entry } = useDimensions({
+    onResize: ({ observe, unobserve, width, height, entry }) => {
+      // Triggered whenever the size of the target is changed...
+
+      unobserve(); // To stop observing the current target element
+      observe(); // To re-start observing the current target element
+    },
+  });
 
   const [timeLineItems, setItems] = useState<TimelineItemModel[]>([]);
   const timeLineItemsRef = useRef<TimelineItemModel[]>();
@@ -116,7 +126,6 @@ const Chrono: React.FunctionComponent<Partial<TimelineProps>> = (
   };
 
   const handleOnPrevious = () => {
-    console.log('previous');
     if (activeTimelineItem > 0) {
       const newTimeLineItem = activeTimelineItem - 1;
 
@@ -156,8 +165,11 @@ const Chrono: React.FunctionComponent<Partial<TimelineProps>> = (
     iconChildren = (iconChildren[0] as any).props.children;
   }
 
+  const itemWidthFinal =
+    props.itemWidth || (width - 120) / (items ? items.length : 1);
+
   return (
-    <GlobalContextProvider {...props}>
+    <GlobalContextProvider {...props} itemWidth={itemWidthFinal}>
       <Timeline
         activeTimelineItem={activeTimelineItem}
         contentDetailsChildren={toReactArray(children).filter(
@@ -177,6 +189,7 @@ const Chrono: React.FunctionComponent<Partial<TimelineProps>> = (
         onScrollEnd={onScrollEnd}
         onItemSelected={onItemSelected}
         onOutlineSelection={handleOutlineSelection}
+        innerRef={observe}
       />
     </GlobalContextProvider>
   );

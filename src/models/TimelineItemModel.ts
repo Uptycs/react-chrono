@@ -43,11 +43,13 @@ export type TimelineCardModel = Pick<
   customContent?: React.ReactNode | React.ReactNode[];
   hasFocus?: boolean;
   iconChild?: React.ReactNode;
+  index: number;
   mode: TimelineMode;
   onClick: (id?: string) => void;
   onElapsed?: (id?: string) => void;
   slideItemDuration?: number;
   slideShowRunning?: boolean;
   theme?: Theme;
+  total: number;
   wrapperId: string;
 };

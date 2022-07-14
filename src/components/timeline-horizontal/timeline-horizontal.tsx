@@ -69,6 +69,8 @@ const TimelineHorizontal: React.FunctionComponent<TimelineHorizontalModel> = ({
             hasFocus={hasFocus}
             iconChild={iconChildColln[index]}
             active={item.active}
+            index={index}
+            total={items.length}
           />
         </TimelineItemWrapper>
       ))}

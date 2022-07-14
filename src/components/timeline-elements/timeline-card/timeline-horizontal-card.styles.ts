@@ -39,9 +39,16 @@ export const CircleWrapper = styled.div`
   /* height: 100%; */
   align-items: center;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   width: 5em;
+`;
+
+export const CircleDivider = styled.div<{ hide: boolean }>`
+  height: 2px;
+  flex: 1 1 auto;
+  background: black;
+  ${(p) => (p.hide ? { background: 'transparent!important' } : {})}
 `;
 
 interface CircleModel {
@@ -98,6 +105,11 @@ export const Circle = styled.div<CircleModel>`
     justify-content: center;
     transform: scale(1.25);
 
+    &.active {
+      border: 4px solid ${(p) => p.theme.primary};
+      background: #fff;
+    }
+
     img {
       max-width: 90%;
       max-height: 90%;
@@ -109,6 +121,7 @@ export const TimelineTitleContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  cursor: pointer;
 
   &.vertical {
     margin-bottom: 1em;

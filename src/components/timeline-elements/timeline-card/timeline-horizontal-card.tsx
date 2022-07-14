@@ -17,6 +17,7 @@ import {
   TimelineContentContainer,
   TimelineTitleContainer,
   Wrapper,
+  CircleDivider,
 } from './timeline-horizontal-card.styles';
 
 const TimelineCard: React.FunctionComponent<TimelineCardModel> = ({
@@ -37,6 +38,8 @@ const TimelineCard: React.FunctionComponent<TimelineCardModel> = ({
   customContent,
   hasFocus,
   iconChild,
+  index,
+  total,
 }: TimelineCardModel) => {
   const circleRef = useRef<HTMLDivElement>(null);
   const wrapperRef = useRef<HTMLDivElement>(null);
@@ -49,6 +52,9 @@ const TimelineCard: React.FunctionComponent<TimelineCardModel> = ({
     disableClickOnCircle,
     cardLess,
     showAllCardsHorizontal,
+    TimelineTitleContainerStyle,
+    CircleStyle,
+    CircleDividerStyle,
   } = useContext(GlobalContext);
 
   const handleClick = () => {
@@ -151,6 +157,7 @@ const TimelineCard: React.FunctionComponent<TimelineCardModel> = ({
       {canShowTimelineContent && showTimelineContent()}
 
       <CircleWrapper>
+        <CircleDivider style={CircleDividerStyle} hide={index == 0} />
         <Circle
           className={circleClass}
           onClick={handleClick}
@@ -159,14 +166,18 @@ const TimelineCard: React.FunctionComponent<TimelineCardModel> = ({
           theme={theme}
           aria-label={title}
           dimension={timelineCircleDimension}
+          style={CircleStyle}
         >
           {iconChild ? iconChild : null}
         </Circle>
+        <CircleDivider style={CircleDividerStyle} hide={index == total - 1} />
       </CircleWrapper>
 
       <TimelineTitleContainer
         className={titleClass}
         data-testid="timeline-title"
+        style={TimelineTitleContainerStyle}
+        onClick={handleClick}
       >
         <TimelineItemTitle title={title} active={active} theme={theme} />
       </TimelineTitleContainer>
