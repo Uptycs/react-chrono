@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 
-export const TimelineHorizontalWrapper = styled.ul<{ flipLayout?: boolean }>`
+export const TimelineHorizontalWrapper = styled.ul<{
+  flipLayout?: boolean;
+  startEndPadding: number;
+}>`
   display: flex;
   list-style: none;
   margin: 0;
@@ -12,7 +15,7 @@ export const TimelineHorizontalWrapper = styled.ul<{ flipLayout?: boolean }>`
   }
   &.horizontal {
     flex-direction: row;
-    padding: 0px 50px;
+    padding: ${(p) => `0px ${p.startEndPadding}px`};
   }
 `;
 

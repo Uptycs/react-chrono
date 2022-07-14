@@ -452,6 +452,7 @@ export const HorizontalNew: React.FunctionComponent<{
           }}
           timelineCircleDimension={15}
           scrollIntoView={false}
+          startEndPadding={60}
           >
           <div className="chrono-icons">
             <img src="color-circle.svg" alt="github" />

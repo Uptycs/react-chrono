@@ -14,6 +14,7 @@ const GlobalContextProvider: React.FunctionComponent<Partial<PropsModel>> = (
     items = [],
     theme,
     buttonTexts,
+    startEndPadding = 50,
   } = props;
   const defaultProps = Object.assign<PropsModel, PropsModel, PropsModel>(
     {},
@@ -49,6 +50,7 @@ const GlobalContextProvider: React.FunctionComponent<Partial<PropsModel>> = (
         ...buttonTexts,
       },
       cardHeight: cardLess ? (cardHeight ? cardHeight : 80) : cardHeight,
+      startEndPadding: startEndPadding,
       theme: Object.assign(
         {
           cardBgColor: '#fff',

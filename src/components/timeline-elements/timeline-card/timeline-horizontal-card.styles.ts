@@ -41,7 +41,7 @@ export const CircleWrapper = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
-  width: 5em;
+  width: 100%;
 `;
 
 export const CircleDivider = styled.div<{ hide: boolean }>`

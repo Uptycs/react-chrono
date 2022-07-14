@@ -83,6 +83,7 @@ export type TimelineProps = {
   showAllCardsHorizontal?: boolean;
   slideItemDuration?: number;
   slideShow?: boolean;
+  startEndPadding?: number;
   theme?: Theme;
   timelineCircleDimension?: number;
   useReadMore?: boolean;

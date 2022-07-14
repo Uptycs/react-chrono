@@ -26,6 +26,7 @@ const TimelineHorizontal: React.FunctionComponent<TimelineHorizontalModel> = ({
     flipLayout,
     showAllCardsHorizontal,
     theme,
+    startEndPadding = 50,
   } = useContext(GlobalContext);
 
   const wrapperClass = useMemo(
@@ -45,6 +46,7 @@ const TimelineHorizontal: React.FunctionComponent<TimelineHorizontalModel> = ({
       className={wrapperClass}
       flipLayout={flipLayout}
       data-testid="timeline-collection"
+      startEndPadding={startEndPadding}
     >
       {items.map((item, index) => (
         <TimelineItemWrapper

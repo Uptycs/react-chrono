@@ -18,6 +18,7 @@ const Chrono: React.FunctionComponent<Partial<TimelineProps>> = (
     slideShow = false,
     onItemSelected,
     activeItemIndex = 0,
+    startEndPadding = 50,
   } = props;
 
   const { observe, unobserve, width, height, entry } = useDimensions({
@@ -166,7 +167,8 @@ const Chrono: React.FunctionComponent<Partial<TimelineProps>> = (
   }
 
   const itemWidthFinal =
-    props.itemWidth || (width - 120) / (items ? items.length : 1);
+    props.itemWidth ||
+    (width - startEndPadding * 2) / (items ? items.length : 1);
 
   return (
     <GlobalContextProvider {...props} itemWidth={itemWidthFinal}>
