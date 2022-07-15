@@ -5,4 +5,5 @@ export interface TitleModel {
   align?: 'left' | 'right';
   theme?: Theme;
   title?: string;
+  titleComponent?: React.ReactNode;
 }

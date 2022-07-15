@@ -40,6 +40,7 @@ const TimelineCard: React.FunctionComponent<TimelineCardModel> = ({
   iconChild,
   index,
   total,
+  titleComponent,
 }: TimelineCardModel) => {
   const circleRef = useRef<HTMLDivElement>(null);
   const wrapperRef = useRef<HTMLDivElement>(null);
@@ -190,7 +191,12 @@ const TimelineCard: React.FunctionComponent<TimelineCardModel> = ({
         style={TimelineTitleContainerStyle}
         onClick={handleClick}
       >
-        <TimelineItemTitle title={title} active={active} theme={theme} />
+        <TimelineItemTitle
+          titleComponent={titleComponent}
+          title={title}
+          active={active}
+          theme={theme}
+        />
       </TimelineTitleContainer>
     </Wrapper>
   );

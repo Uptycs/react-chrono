@@ -1,5 +1,6 @@
 import cls from 'classnames';
 import React, { useContext, useMemo } from 'react';
+
 import { TitleModel } from '../../../models/TimelineCardTitleModel';
 import { GlobalContext } from '../../GlobalContext';
 import { TitleWrapper } from './timeline-card-title.styles';
@@ -9,6 +10,7 @@ const TimelineItemTitle: React.FunctionComponent<TitleModel> = ({
   active,
   theme,
   align,
+  titleComponent,
 }: TitleModel) => {
   const titleClass = useMemo(
     () => cls('timeline-item-title', active ? 'active' : ''),
@@ -24,8 +26,9 @@ const TimelineItemTitle: React.FunctionComponent<TitleModel> = ({
       hide={!title}
       align={align}
       fontSize={fontSizes?.title}
+      data-tip={title}
     >
-      {title}
+      {titleComponent || title}
     </TitleWrapper>
   );
 };

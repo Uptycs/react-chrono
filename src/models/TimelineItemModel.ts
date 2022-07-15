@@ -17,6 +17,7 @@ export interface TimelineItemModel {
   media?: Media;
   position?: string;
   title?: string;
+  titleComponent?: React.ReactNode;
   url?: string;
   visible?: boolean;
 }
@@ -32,6 +33,7 @@ export type TimelineCardModel = Pick<
   | 'cardTitle'
   | 'media'
   | 'url'
+  | 'titleComponent'
 > & {
   autoScroll: ({
     pointOffset,
