@@ -10,7 +10,7 @@ import {
 
 const TimelineHorizontal: React.FunctionComponent<TimelineHorizontalModel> = ({
   items,
-  handleItemClick,
+  // handleItemClick,
   autoScroll,
   wrapperId,
   slideShowRunning,
@@ -77,7 +77,7 @@ const TimelineHorizontal: React.FunctionComponent<TimelineHorizontalModel> = ({
           >
             <TimelineCard
               {...item}
-              onClick={handleItemClick}
+              // onClick={handleItemClick}
               autoScroll={autoScroll}
               mode={mode}
               wrapperId={wrapperId}

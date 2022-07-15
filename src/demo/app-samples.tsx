@@ -418,6 +418,10 @@ export const VerticalCustomContent2: FunctionComponent<{
   </Vertical>
 );
 
+const Test = (props: any) => {
+  return <div onClick={props.onNext}>hey</div>
+}
+
 export const HorizontalNew: React.FunctionComponent<{
   type: string;
   items: TimelineItemModel[];
@@ -427,7 +431,7 @@ export const HorizontalNew: React.FunctionComponent<{
       <ComponentContainer type={'big-screen'}>
         <Chrono
           items={data}
-          activeItemIndex={2}
+          // activeItemIndex={0}
           mode="HORIZONTAL"
           cardHeight={150}
           slideShow
@@ -469,6 +473,9 @@ export const HorizontalNew: React.FunctionComponent<{
             <img src="color-circle.svg" alt="github" />
             <img src="color-circle.svg" alt="github" />
           </div>
+          <Test />
+          <Test />
+          <Test />
         </Chrono>
 
       </ComponentContainer>
