@@ -256,13 +256,13 @@ const TimelineCardContent: React.FunctionComponent<TimelineContentModel> =
           mode={mode}
           noMedia={!media}
           onClick={(ev: React.MouseEvent) => {
-            ev.stopPropagation();
             if (
               !slideShowActive &&
               onClick &&
               id &&
               !disableAutoScrollOnClick
             ) {
+              ev.stopPropagation();
               onClick(id);
             }
           }}
