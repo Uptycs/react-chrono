@@ -66,6 +66,10 @@ export const Circle = styled.div<CircleModel>`
   height: ${(p) => p.dimension}px;
   width: ${(p) => p.dimension}px;
 
+  &:hover {
+    box-shadow: 0px 0px 11px -3px rgba(0, 0, 0, 0.83);
+  }
+
   &.active {
     &.using-icon {
       /* transform: scale(1.75); */
@@ -126,6 +130,11 @@ export const TimelineTitleContainer = styled.div`
   align-items: center;
   justify-content: flex-start;
   cursor: pointer;
+  border-radius: 4px;
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.04);
+  }
 
   &.vertical {
     margin-bottom: 1em;
