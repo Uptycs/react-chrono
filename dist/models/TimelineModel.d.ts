@@ -32,6 +32,7 @@ export declare type TimelineModel = Pick<TimelineProps, 'items' | 'onItemSelecte
 export declare type TimelineProps = {
     CircleDividerStyle?: React.CSSProperties;
     CircleStyle?: React.CSSProperties;
+    CircleStyleActive?: React.CSSProperties;
     OutlineStyle?: React.CSSProperties;
     TimelineMainWrapperStyle?: React.CSSProperties;
     TimelineTitleContainerStyle?: React.CSSProperties;

@@ -18,10 +18,11 @@ export interface TimelineItemModel {
     media?: Media;
     position?: string;
     title?: string;
+    titleComponent?: React.ReactNode;
     url?: string;
     visible?: boolean;
 }
-export declare type TimelineCardModel = Pick<TimelineItemModel, 'id' | 'visible' | 'title' | 'active' | 'cardDetailedText' | 'cardSubtitle' | 'cardTitle' | 'media' | 'url'> & {
+export declare type TimelineCardModel = Pick<TimelineItemModel, 'id' | 'visible' | 'title' | 'active' | 'cardDetailedText' | 'cardSubtitle' | 'cardTitle' | 'media' | 'url' | 'titleComponent'> & {
     autoScroll: ({ pointOffset, pointWidth, timelinePointHeight, contentHeight, }: Partial<Scroll>) => void;
     cardHeight?: number;
     customContent?: React.ReactNode | React.ReactNode[];

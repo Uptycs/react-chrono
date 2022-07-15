@@ -4,6 +4,7 @@ export declare const Item: import("styled-components").StyledComponent<"div", an
 export declare const CircleWrapper: import("styled-components").StyledComponent<"div", any, {}, never>;
 export declare const CircleDivider: import("styled-components").StyledComponent<"div", any, {
     hide: boolean;
+    type: 'left' | 'right';
 }, never>;
 interface CircleModel {
     dimension?: number;
