@@ -90,7 +90,16 @@ const Chrono: React.FunctionComponent<Partial<TimelineProps>> = (
       timeLineItemsRef.current = newItems;
       setItems(newItems);
     }
-  }, [JSON.stringify(allowDynamicUpdate ? items : null)]);
+  }, [
+    JSON.stringify(
+      allowDynamicUpdate
+        ? items?.map((el) => {
+            const { titleComponent, ...rest } = el;
+            return rest;
+          })
+        : null,
+    ),
+  ]);
 
   const handleTimelineUpdate = useCallback((actvTimelineIndex: number) => {
     setItems((items) =>
