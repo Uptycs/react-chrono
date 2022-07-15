@@ -339,8 +339,8 @@ const Timeline: React.FunctionComponent<TimelineModel> = (
                   ? activeTimelineItem === 0
                   : activeTimelineItem === items.length - 1
               }
-              onNext={handleNext}
-              onPrevious={handlePrevious}
+              onNext={onNext}
+              onPrevious={onPrevious}
             />
           </TimelineMain>
         ) : null}
