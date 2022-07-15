@@ -18,6 +18,10 @@ const TimelineHorizontal: React.FunctionComponent<TimelineHorizontalModel> = ({
   contentDetailsChildren: children,
   hasFocus,
   iconChildren,
+  disableLeft,
+  disableRight,
+  onNext,
+  onPrevious,
 }: TimelineHorizontalModel) => {
   const {
     mode = 'HORIZONTAL',
@@ -48,34 +52,49 @@ const TimelineHorizontal: React.FunctionComponent<TimelineHorizontalModel> = ({
       data-testid="timeline-collection"
       startEndPadding={startEndPadding}
     >
-      {items.map((item, index) => (
-        <TimelineItemWrapper
-          key={item.id}
-          width={itemWidth}
-          className={cls(
-            item.visible ? 'visible' : '',
-            'timeline-horz-item-container',
-          )}
-        >
-          <TimelineCard
-            {...item}
-            onClick={handleItemClick}
-            autoScroll={autoScroll}
-            mode={mode}
-            wrapperId={wrapperId}
-            theme={theme}
-            slideShowRunning={slideShowRunning}
-            cardHeight={cardHeight}
-            onElapsed={onElapsed}
-            customContent={children ? (children as ReactNode[])[index] : null}
-            hasFocus={hasFocus}
-            iconChild={iconChildColln[index]}
-            active={item.active}
-            index={index}
-            total={items.length}
-          />
-        </TimelineItemWrapper>
-      ))}
+      {items.map((item, index) => {
+        let customElement = null;
+        if (
+          children &&
+          (children as any[])[index] &&
+          React.isValidElement((children as ReactNode[])[index])
+        ) {
+          customElement = React.cloneElement((children as any[])[index], {
+            disableLeft,
+            disableRight,
+            onNext,
+            onPrevious,
+          });
+        }
+        return (
+          <TimelineItemWrapper
+            key={item.id}
+            width={itemWidth}
+            className={cls(
+              item.visible ? 'visible' : '',
+              'timeline-horz-item-container',
+            )}
+          >
+            <TimelineCard
+              {...item}
+              onClick={handleItemClick}
+              autoScroll={autoScroll}
+              mode={mode}
+              wrapperId={wrapperId}
+              theme={theme}
+              slideShowRunning={slideShowRunning}
+              cardHeight={cardHeight}
+              onElapsed={onElapsed}
+              customContent={customElement}
+              hasFocus={hasFocus}
+              iconChild={iconChildColln[index]}
+              active={item.active}
+              index={index}
+              total={items.length}
+            />
+          </TimelineItemWrapper>
+        );
+      })}
     </TimelineHorizontalWrapper>
   );
 };

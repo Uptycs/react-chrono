@@ -329,6 +329,18 @@ const Timeline: React.FunctionComponent<TimelineModel> = (
               onElapsed={(id?: string) => handleTimelineItemClick(id, true)}
               slideShowRunning={slideShowRunning}
               wrapperId={id.current}
+              disableLeft={
+                flipLayout
+                  ? activeTimelineItem === items.length - 1
+                  : activeTimelineItem === 0
+              }
+              disableRight={
+                flipLayout
+                  ? activeTimelineItem === 0
+                  : activeTimelineItem === items.length - 1
+              }
+              onNext={handleNext}
+              onPrevious={handlePrevious}
             />
           </TimelineMain>
         ) : null}
