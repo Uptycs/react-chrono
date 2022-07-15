@@ -71,6 +71,7 @@ const TimelineCardContent: React.FunctionComponent<TimelineContentModel> =
         borderLessCards,
         disableAutoScrollOnClick,
         fontSizes,
+        TimelineContentDetailsWrapperStyle,
       } = useContext(GlobalContext);
 
       const canShowProgressBar = useMemo(() => {
@@ -318,6 +319,7 @@ const TimelineCardContent: React.FunctionComponent<TimelineContentModel> =
             theme={theme}
             useReadMore={useReadMore}
             borderLess={borderLessCards}
+            style={TimelineContentDetailsWrapperStyle}
           >
             {customContent ? (
               <>{customContent}</>

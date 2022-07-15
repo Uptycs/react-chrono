@@ -43,6 +43,8 @@ export type TimelineProps = {
   CircleStyle?: React.CSSProperties;
   CircleStyleActive?: React.CSSProperties;
   OutlineStyle?: React.CSSProperties;
+  TimelineContentContainerStyle?: React.CSSProperties;
+  TimelineContentDetailsWrapperStyle?: React.CSSProperties;
   TimelineMainWrapperStyle?: React.CSSProperties;
   TimelineTitleContainerStyle?: React.CSSProperties;
   activeItemIndex?: number;

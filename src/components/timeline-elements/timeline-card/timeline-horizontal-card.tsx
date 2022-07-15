@@ -57,6 +57,7 @@ const TimelineCard: React.FunctionComponent<TimelineCardModel> = ({
     CircleStyle,
     CircleDividerStyle,
     CircleStyleActive,
+    TimelineContentContainerStyle,
   } = useContext(GlobalContext);
 
   const handleClick = () => {
@@ -120,6 +121,7 @@ const TimelineCard: React.FunctionComponent<TimelineCardModel> = ({
         active={active}
         highlight={showAllCardsHorizontal}
         tabIndex={0}
+        style={TimelineContentContainerStyle}
       >
         <TimelineCardContent
           content={cardSubtitle}
