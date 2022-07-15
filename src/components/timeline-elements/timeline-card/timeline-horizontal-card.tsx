@@ -158,7 +158,11 @@ const TimelineCard: React.FunctionComponent<TimelineCardModel> = ({
       {canShowTimelineContent && showTimelineContent()}
 
       <CircleWrapper>
-        <CircleDivider style={CircleDividerStyle} hide={index == 0} />
+        <CircleDivider
+          type="left"
+          style={CircleDividerStyle}
+          hide={index == 0}
+        />
         <Circle
           className={circleClass}
           onClick={handleClick}
@@ -173,7 +177,11 @@ const TimelineCard: React.FunctionComponent<TimelineCardModel> = ({
         >
           {iconChild ? iconChild : null}
         </Circle>
-        <CircleDivider style={CircleDividerStyle} hide={index == total - 1} />
+        <CircleDivider
+          type="right"
+          style={CircleDividerStyle}
+          hide={index == total - 1}
+        />
       </CircleWrapper>
 
       <TimelineTitleContainer

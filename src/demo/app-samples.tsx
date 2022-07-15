@@ -440,7 +440,7 @@ export const HorizontalNew: React.FunctionComponent<{
           }}
           CircleStyle={{
             background: 'transparent',
-            border: '2px solid #DDDDDD',
+            border: '2px solid black',
           }}
           CircleStyleActive={{
             background: '#fff',

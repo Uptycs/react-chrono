@@ -44,11 +44,15 @@ export const CircleWrapper = styled.div`
   width: 100%;
 `;
 
-export const CircleDivider = styled.div<{ hide: boolean }>`
+export const CircleDivider = styled.div<{
+  hide: boolean;
+  type: 'left' | 'right';
+}>`
   height: 2px;
   flex: 1 1 auto;
   background: black;
-  ${(p) => (p.hide ? { background: 'transparent!important' } : {})}
+  margin: ${(p) => (p.type === 'left' ? '0px 6px 0px 0px' : '0px 0px 0px 6px')};
+  ${(p) => (p.hide ? { background: 'transparent!important' } : {})};
 `;
 
 interface CircleModel {
