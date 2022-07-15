@@ -438,6 +438,14 @@ export const HorizontalNew: React.FunctionComponent<{
             background: 'rgba(0, 0 , 0, .2)',
             borderRadius: '8px'
           }}
+          CircleStyle={{
+            background: 'transparent',
+            border: '2px solid #DDDDDD',
+          }}
+          CircleStyleActive={{
+            background: '#fff',
+            border: '3px solid #8E24AA',
+          }}
           TimelineMainWrapperStyle={{
             height: '220px'
           }}
@@ -452,7 +460,7 @@ export const HorizontalNew: React.FunctionComponent<{
           }}
           timelineCircleDimension={15}
           scrollIntoView={false}
-          startEndPadding={60}
+          startEndPadding={50}
           >
           <div className="chrono-icons">
             <img src="color-circle.svg" alt="github" />

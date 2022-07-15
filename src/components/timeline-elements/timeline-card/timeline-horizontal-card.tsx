@@ -55,6 +55,7 @@ const TimelineCard: React.FunctionComponent<TimelineCardModel> = ({
     TimelineTitleContainerStyle,
     CircleStyle,
     CircleDividerStyle,
+    CircleStyleActive,
   } = useContext(GlobalContext);
 
   const handleClick = () => {
@@ -166,7 +167,9 @@ const TimelineCard: React.FunctionComponent<TimelineCardModel> = ({
           theme={theme}
           aria-label={title}
           dimension={timelineCircleDimension}
-          style={CircleStyle}
+          style={
+            active ? { ...CircleStyle, ...CircleStyleActive } : CircleStyle
+          }
         >
           {iconChild ? iconChild : null}
         </Circle>
